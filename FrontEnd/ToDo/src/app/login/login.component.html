@@ -1,0 +1,48 @@
+<!-- <h1>Login!</h1>
+<div class="container">
+    <div class="alert alert-warning"*ngIf="invalid">{{errorMessage}}</div>
+    <div>
+        UserName: <input type="text" name="username" [(ngModel)]="username" />
+        Password: <input type="password" name="password" [(ngModel)]="password"/>
+         <button (click)=loginClicked() class="btn btn-success">Login</button> 
+        <button (click)=loginBasicAuthClicked() class="btn btn-success">Login</button>
+        <button (click)=loginJWTAuthClicked() class="btn btn-success">Login</button>
+        
+    </div>
+</div> -->
+
+<h1>Login!</h1>
+ <div class="container">
+    <div class="alert alert-warning" *ngIf="invalid">{{errorMessage}}</div>
+    <div class="alert alert-warning" *ngIf="loinForm.dirty && loinForm.invalid">
+        Enter the required fields
+    </div>
+  <form (ngSubmit)="!loinForm.invalid && loginJWTAuthClicked()" #loinForm="ngForm">
+         <!-- <div class="alert alert-warning" *ngIf="username.dirty && username.invalid">
+            Username is required.
+        </div>  -->
+     <fieldset class="form-group">
+            <label>UserName:</label>
+            <input type="text" 
+             class="form-control"
+             
+             [(ngModel)]="username"
+             name="username"
+             required="required">
+        </fieldset>
+
+       <fieldset class="form-group">
+            <!-- <div class="alert alert-warning" *ngIf="password.dirty && password.invalid">
+                Password is required.
+            </div> -->
+            <label>Password:</label>
+            <input type="password" 
+             class="form-control"
+             
+             [(ngModel)]="password"
+             name="password"
+             required="required">
+        </fieldset>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form> 
+</div>

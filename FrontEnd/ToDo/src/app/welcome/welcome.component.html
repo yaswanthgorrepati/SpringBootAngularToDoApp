@@ -1,0 +1,20 @@
+<h1>Welcome!</h1>
+
+<div class="container alert alert-warning" *ngIf="errorMessage">
+    <h2>Error Mesage</h2>
+    {{errorMessage}}
+</div>
+
+<div class="container">
+    Welcome {{name}}. Want to see your tods, click <a routerLink="/listTodo">here</a>
+</div>
+
+<div class="container">
+    Click here to get customized messsage.
+    <button (click)="getMessageWithParaeters()" class="btn btn-primary">Get message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessage">
+    <h2>Customized Messsage.</h2>
+    {{welcomeMessage}}
+</div>
